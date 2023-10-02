@@ -24,9 +24,6 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
-      locationId: {
-        type: Sequelize.INTEGER,
-      },
 
       createdAt: {
         allowNull: false,
