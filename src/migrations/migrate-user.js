@@ -36,6 +36,9 @@ module.exports = {
       image: {
         type: Sequelize.BLOB,
       },
+      cv: {
+        type: Sequelize.BLOB,
+      },
       password: {
         type: Sequelize.STRING,
       },
