@@ -18,6 +18,9 @@ module.exports = {
       lastname: {
         type: Sequelize.STRING,
       },
+      birthday: {
+        type: Sequelize.DATE,
+      },
       gender: {
         type: Sequelize.STRING,
       },
@@ -29,6 +32,9 @@ module.exports = {
       },
       address: {
         type: Sequelize.STRING,
+      },
+      image: {
+        type: Sequelize.BLOB,
       },
       password: {
         type: Sequelize.STRING,

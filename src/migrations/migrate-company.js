@@ -24,6 +24,9 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
       },
+      logo: {
+        type: Sequelize.BLOB,
+      },
 
       createdAt: {
         allowNull: false,
