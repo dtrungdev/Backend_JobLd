@@ -2,7 +2,7 @@ require("dotenv").config();
 
 const configCors = (app) => {
   app.use(function (req, res, next) {
-    res.setHeader("Access-Control-Allow-Origin", process.env.REACT_URL);
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
     res.setHeader(
       "Access-Control-Allow-Methods",
       "GET, POST, UPDATE, OPTIONS, PUT, PATCH, DELETE"
