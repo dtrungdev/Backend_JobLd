@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       User.belongsTo(models.Group);
-      User.belongsToMany(Job, { through: "Job_User" });
+      User.belongsToMany(models.Job, { through: "Job_User" });
     }
   }
   User.init(

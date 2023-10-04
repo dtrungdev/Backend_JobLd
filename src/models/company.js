@@ -1,5 +1,6 @@
 "use strict";
 const { Model } = require("sequelize");
+
 module.exports = (sequelize, DataTypes) => {
   class Company extends Model {
     /**
@@ -9,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Company.belongsToMany(Location, { through: "Company_Location" });
+      Company.belongsToMany(models.Locate, { through: "Company_Locate" });
       Company.hasMany(models.Job);
     }
   }
