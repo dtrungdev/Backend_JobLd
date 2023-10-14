@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       startDate: {
         type: Sequelize.DATE,

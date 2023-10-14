@@ -12,7 +12,12 @@ module.exports = {
       name: {
         type: Sequelize.STRING,
       },
-
+      overview: {
+        type: Sequelize.TEXT,
+      },
+      benefit: {
+        type: Sequelize.TEXT,
+      },
       country: {
         type: Sequelize.STRING,
       },
