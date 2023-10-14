@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       Company.belongsToMany(models.Location, { through: "Company_Location" });
+      Company.belongsToMany(models.Address, { through: "Address_Company" });
       Company.hasMany(models.Job);
     }
   }
