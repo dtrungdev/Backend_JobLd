@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Locate.belongsToMany(models.Company, { through: "Company_Locate" });
+      Locate.belongsToMany(models.Company, { through: "Company_Location" });
     }
   }
   Locate.init(
