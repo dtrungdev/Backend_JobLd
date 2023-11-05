@@ -33,16 +33,17 @@ module.exports = {
       address: {
         type: Sequelize.STRING,
       },
+      password: {
+        type: Sequelize.STRING,
+      },
       image: {
         type: Sequelize.BLOB,
       },
       cv: {
         type: Sequelize.BLOB,
       },
-      password: {
-        type: Sequelize.STRING,
-      },
-      groupId: {
+
+      RoleId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

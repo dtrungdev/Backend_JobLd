@@ -1,5 +1,8 @@
 import db from "../models";
+require("dotenv").config();
 import bcrypt from "bcrypt";
+import { createJWT } from "../middleware/JWTActions";
+import getRoles from "./JWTService";
 
 const saltRounds = 10;
 
@@ -37,6 +40,7 @@ const registerNewUser = async (rawUserData) => {
       fullname: rawUserData.fullname,
       email: rawUserData.email,
       password: hashPassword,
+      roleId: 10,
     });
 
     return {
@@ -69,10 +73,17 @@ const handleUserLogin = async (rawData) => {
       console.log(">>> found user with email");
       let isCorrectPassword = checkPassword(rawData.password, user.password);
       if (isCorrectPassword === true) {
+        let roles = await getRoles(user);
+        let payload = {
+          email: user.email,
+          roles,
+          expiresIn: process.env.JWT_EXPIRES_IN,
+        };
+        let token = createJWT(payload);
         return {
           EM: "ok",
           EC: 0,
-          DT: "",
+          DT: { access_token: token, roles },
         };
       }
     }

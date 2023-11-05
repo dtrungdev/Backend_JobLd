@@ -3,6 +3,7 @@ import loginRegisterService from "../services/loginRegisterService";
 const handleRegister = async (req, res) => {
   try {
     //req.body : fullname, email, password,
+
     if (!req.body.fullname || !req.body.email || !req.body.password) {
       return res.status(200).json({
         EM: "Missing required parameters", //error message
@@ -37,6 +38,10 @@ const handleRegister = async (req, res) => {
 const handleLogin = async (req, res) => {
   try {
     let data = await loginRegisterService.handleUserLogin(req.body);
+    res.cookie("jwt", data.DT.access_token, {
+      httpOnly: true,
+      maxAge: 60 * 60 * 1000,
+    });
     console.log(data);
     return res.status(200).json({
       EM: data.EM, //error message

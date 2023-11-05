@@ -10,20 +10,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Company.belongsToMany(models.Location, { through: "Company_Location" });
-      Company.belongsToMany(models.Address, { through: "Address_Company" });
       Company.hasMany(models.Job);
+      Company.hasOne(models.Allcode);
+      Company.hasMany(models.Address);
+      Company.belongsToMany(models.User, { through: models.Company_User });
+      Company.belongsToMany(models.Province, {
+        through: models.Company_Province,
+      });
     }
   }
   Company.init(
     {
       name: DataTypes.STRING,
-      overview: DataTypes.TEXT,
+      introduce: DataTypes.TEXT,
       benefit: DataTypes.TEXT,
-      country: DataTypes.STRING,
-      phone: DataTypes.STRING,
+      type: DataTypes.STRING,
+      size: DataTypes.INTEGER,
+      hotline: DataTypes.STRING,
+      workingdays: DataTypes.STRING,
       email: DataTypes.STRING,
-      logo: DataTypes.BLOB,
+      logo: DataTypes.STRING,
+      album: DataTypes.TEXT,
     },
     {
       sequelize,

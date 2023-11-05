@@ -9,9 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Job.belongsToMany(models.User, { through: "Job_User" });
-      Job.belongsTo(models.Category);
+      Job.belongsToMany(models.User, { through: models.Job_User });
       Job.belongsTo(models.Company);
+      Job.hasOne(models.Allcode);
+      Job.belongsTo(models.Category);
+      Job.belongsTo(models.Position);
     }
   }
   Job.init(
@@ -19,11 +21,15 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       salary: DataTypes.INTEGER,
       description: DataTypes.TEXT,
+      quantity: DataTypes.INTEGER,
       startDate: DataTypes.DATE,
       updateDate: DataTypes.DATE,
       endDate: DataTypes.DATE,
-      categoryID: DataTypes.INTEGER,
+      categoryId: DataTypes.INTEGER,
+      positionId: DataTypes.INTEGER,
       companyId: DataTypes.INTEGER,
+      experiecnceId: DataTypes.INTEGER,
+      levelId: DataTypes.INTEGER,
     },
     {
       sequelize,

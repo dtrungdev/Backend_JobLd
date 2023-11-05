@@ -7,15 +7,16 @@ module.exports = (sequelize, DataTypes) => {
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
-     */ Category;
+     */
     static associate(models) {
       // define association here
-      Address.belongsToMany(models.Company, { through: "Address_Company" });
+      Address.belongsTo(models.Company);
     }
   }
   Address.init(
     {
       detail: DataTypes.STRING,
+      companyId: DataTypes.INTEGER,
     },
     {
       sequelize,

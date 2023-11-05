@@ -9,8 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.belongsTo(models.Group);
-      User.belongsToMany(models.Job, { through: "Job_User" });
+      User.hasOne(models.Allcode);
+      User.belongsToMany(models.Job, { through: models.Job_User });
+      User.hasOne(models.EmployeeProfile);
+      User.belongsToMany(models.Company, { through: models.Company_User });
     }
   }
   User.init(
@@ -22,11 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       gender: DataTypes.STRING,
       email: DataTypes.STRING,
       phone: DataTypes.STRING,
+      password: DataTypes.STRING,
       address: DataTypes.STRING,
       image: DataTypes.BLOB,
       cv: DataTypes.BLOB,
-      password: DataTypes.STRING,
-      groupId: DataTypes.INTEGER,
+      RoleId: DataTypes.INTEGER,
     },
     {
       sequelize,

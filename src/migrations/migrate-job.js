@@ -27,10 +27,19 @@ module.exports = {
       endDate: {
         type: Sequelize.DATE,
       },
-      categoryID: {
+      categoryId: {
+        type: Sequelize.INTEGER,
+      },
+      positionId: {
         type: Sequelize.INTEGER,
       },
       companyId: {
+        type: Sequelize.INTEGER,
+      },
+      experienceId: {
+        type: Sequelize.INTEGER,
+      },
+      levelId: {
         type: Sequelize.INTEGER,
       },
 
