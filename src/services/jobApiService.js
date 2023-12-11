@@ -1,6 +1,7 @@
 import db from "../models/index";
+import { Op } from "sequelize";
 
-const getJob = async (page, limit) => {
+const getJob = async (page, limit, title) => {
   try {
     let offset = (page - 1) * limit;
     const { count, rows } = await db.Job.findAndCountAll({
@@ -8,6 +9,11 @@ const getJob = async (page, limit) => {
       offset: offset,
       limit: limit,
       distinct: true,
+      where: {
+        title: {
+          [Op.like]: `%${title}%`,
+        },
+      },
       include: {
         model: db.Company,
         attributes: ["id", "name", "logo"],

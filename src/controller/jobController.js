@@ -67,8 +67,9 @@ const FindJob = async (req, res) => {
     if (req.query.page && req.query.limit) {
       let page = req.query.page;
       let limit = req.query.limit;
+      let title = req.body.title;
 
-      let data = await jobApiService.getJob(+page, +limit);
+      let data = await jobApiService.getJob(+page, +limit, title);
       return res.status(200).json({
         EM: data.EM, //error message
         EC: data.EC, //error code

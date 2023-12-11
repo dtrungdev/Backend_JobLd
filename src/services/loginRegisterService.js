@@ -68,22 +68,20 @@ const handleUserLogin = async (rawData) => {
         email: rawData.email,
       },
     });
-
     if (user) {
       console.log(">>> found user with email");
       let isCorrectPassword = checkPassword(rawData.password, user.password);
       if (isCorrectPassword === true) {
-        let roles = await getRoles(user);
+        // let roles = await getRoles(user);
         let payload = {
           email: user.email,
-          roles,
           expiresIn: process.env.JWT_EXPIRES_IN,
         };
         let token = createJWT(payload);
         return {
           EM: "ok",
           EC: 0,
-          DT: { access_token: token, roles },
+          DT: { access_token: token },
         };
       }
     }

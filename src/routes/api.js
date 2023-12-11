@@ -5,10 +5,20 @@ import addressController from "../controller/AddressController";
 import companyController from "../controller/companyController";
 import experienceController from "../controller/experienceController";
 import salaryController from "../controller/salaryController";
+import { checkUserJWT, checkUserPermission } from "../middleware/JWTActions";
 
 const router = express.Router();
 
+function checkUserLogin(req, res, next) {
+  const nonSecurePaths = ["/", "/login", "/register"];
+  if (nonSecurePaths.includes(req.path)) return next();
+
+  //authenticate user
+  next();
+}
+
 const initApiRoutes = (app) => {
+  router.all("*", checkUserJWT, checkUserPermission);
   router.post("/register", apiController.handleRegister);
   router.post("/login", apiController.handleLogin);
 

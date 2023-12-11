@@ -42,7 +42,6 @@ const handleLogin = async (req, res) => {
       httpOnly: true,
       maxAge: 60 * 60 * 1000,
     });
-    console.log(data);
     return res.status(200).json({
       EM: data.EM, //error message
       EC: data.EC, //error code

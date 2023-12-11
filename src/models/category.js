@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Category.hasMany(models.Job);
+      Category.hasMany(models.Job)
     }
   }
   Category.init(
     {
-      name: DataTypes.STRING,
+      category: DataTypes.STRING,
     },
     {
       sequelize,

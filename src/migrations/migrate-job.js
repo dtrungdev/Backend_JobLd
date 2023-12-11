@@ -9,39 +9,48 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
-        type: Sequelize.STRING,
+      title:{
+        type: Sequelize.STRING
+      } ,
+      salary:{
+        type: Sequelize.INTEGER
+      } ,
+      currency:{
+        type: Sequelize.STRING
+      } ,
+      employQuantity:{
+        type: Sequelize.INTEGER
+      } ,
+      applyReason:{
+        type: Sequelize.TEXT
+      } ,
+      mainContent:{
+        type: Sequelize.TEXT
       },
-      salary: {
-        type: Sequelize.INTEGER,
+      benefit:{
+        type: Sequelize.TEXT
       },
-      description: {
-        type: Sequelize.TEXT,
+      startDate:{
+        type: Sequelize.DATE
       },
-      startDate: {
-        type: Sequelize.DATE,
+      updateDate:{
+        type: Sequelize.DATE
       },
-      updateDate: {
-        type: Sequelize.DATE,
+      endDate:{
+        type: Sequelize.DATE
       },
-      endDate: {
-        type: Sequelize.DATE,
-      },
-      categoryId: {
-        type: Sequelize.INTEGER,
-      },
-      positionId: {
-        type: Sequelize.INTEGER,
-      },
-      companyId: {
-        type: Sequelize.INTEGER,
-      },
-      experienceId: {
-        type: Sequelize.INTEGER,
-      },
-      levelId: {
-        type: Sequelize.INTEGER,
-      },
+      views:{
+        type: Sequelize.INTEGER
+      } ,
+      saves:{
+        type: Sequelize.INTEGER
+      } ,
+      categoryId:{
+        type: Sequelize.INTEGER
+      } ,
+      recruiterId:{
+        type: Sequelize.INTEGER
+      } ,
 
       createdAt: {
         allowNull: false,

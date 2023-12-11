@@ -2,17 +2,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Job_User", {
+    await queryInterface.createTable("Feedback", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      jobId: {
+      userId: {
         type: Sequelize.INTEGER,
       },
-      userId: {
+      companyId: {
+        type: Sequelize.INTEGER,
+      },
+      feedback: {
+        type: Sequelize.TEXT,
+      },
+      star: {
         type: Sequelize.INTEGER,
       },
 
@@ -27,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("Job_User");
+    await queryInterface.dropTable("Feedback");
   },
 };

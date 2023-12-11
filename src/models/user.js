@@ -9,26 +9,27 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Allcode);
-      User.belongsToMany(models.Job, { through: models.Job_User });
-      User.hasOne(models.EmployeeProfile);
-      User.belongsToMany(models.Company, { through: models.Company_User });
+     User.belongsToMany(models.Company, {through: models.Follow})
+     User.belongsToMany(models.Company, {through: models.Feedback})
+     User.belongsToMany(models.Job, {through: models.Save_Job})
+     User.belongsToMany(models.Job, {through: models.Applied})
+     User.hasMany(models.Images)
     }
   }
   User.init(
     {
+      username: DataTypes.STRING,
       fullname: DataTypes.STRING,
-      firstname: DataTypes.STRING,
-      lastname: DataTypes.STRING,
       birthday: DataTypes.DATE,
-      gender: DataTypes.STRING,
+      sex: DataTypes.STRING,
       email: DataTypes.STRING,
       phone: DataTypes.STRING,
       password: DataTypes.STRING,
-      address: DataTypes.STRING,
-      image: DataTypes.BLOB,
+      avatar: DataTypes.BLOB,
       cv: DataTypes.BLOB,
-      RoleId: DataTypes.INTEGER,
+      addressId: DataTypes.INTEGER,
+      companyId: DataTypes.INTEGER,
+      groupId: DataTypes.INTEGER
     },
     {
       sequelize,

@@ -6,3 +6,7 @@ const getRoles = async (user) => {
   });
   return roles ? roles : {};
 };
+
+module.exports = {
+  getRoles,
+};
